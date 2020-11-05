@@ -20,7 +20,7 @@ public class TestWaitingListService {
 		boolean result = WaitingLists.addWaiting(car_id, employee_id);
 		
 		for(IWaiting w : WaitingLists.getWaitingList())
-			System.out.println("\n Waiting id : "+w.getId()+" Car id : "+ w.getCar_id()+" Employee Id : "+w.getEmployee_id()+" available date : "+ w.getDate_available().toString()+" request date : "+ w.getRequest_date().toString());
+			System.out.println("\n Waiting id : "+w.getId()+" Car id : "+ w.getCar_id()+" Employee Id : "+w.getEmployee_id()/*+" available date : "+ w.getDate_available().toString()*/+" request date : "+ w.getRequest_date().toString());
 		
 		System.out.println("\n*-End Method testAddToWaitingList-*");
 		return result;
@@ -38,7 +38,7 @@ public class TestWaitingListService {
 		
 		//Display the returned value 
 		for(IWaiting w : WaitingLists.getWaitingList())
-			System.out.println("\n Waiting id : "+w.getId()+" Car id : "+ w.getCar_id()+" Employee Id : "+w.getEmployee_id()+" available date : "+ w.getDate_available().toString()+" request date : "+ w.getRequest_date().toString());
+			System.out.println("\n Waiting id : "+w.getId()+" Car id : "+ w.getCar_id()+" Employee Id : "+w.getEmployee_id()/*+" available date : "+ w.getDate_available().toString()*/+" request date : "+ w.getRequest_date().toString());
 		
 		
 	}
@@ -64,7 +64,7 @@ public class TestWaitingListService {
 			
 			//Display the returned values
 			for(IWaiting w : result_WaitingLists) {
-				System.out.println("\n Waiting id : "+w.getId()+" Car id : "+ w.getCar_id()+" Employee Id : "+w.getEmployee_id()+" available date : "+ w.getDate_available().toString()+" request date : "+ w.getRequest_date().toString());
+				System.out.println("\n Waiting id : "+w.getId()+" Car id : "+ w.getCar_id()+" Employee Id : "+w.getEmployee_id()+" available date : "/*+ w.getDate_available().toString()*/+" request date : "+ w.getRequest_date().toString());
 				
 				if(w.getCar_id() == car_id)
 					result = true;
@@ -98,7 +98,7 @@ public class TestWaitingListService {
 			
 			//Display the returned values 
 			for(IWaiting w : result_WaitingLists) {
-				System.out.println("\n Waiting id : "+w.getId()+" Car id : "+ w.getCar_id()+" Employee Id : "+w.getEmployee_id()+" available date : "+ w.getDate_available().toString()+" request date : "+ w.getRequest_date().toString());
+				System.out.println("\n Waiting id : "+w.getId()+" Car id : "+ w.getCar_id()+" Employee Id : "+w.getEmployee_id()/*+" available date : "+ w.getDate_available().toString()*/+" request date : "+ w.getRequest_date().toString());
 				
 				if(w.getEmployee_id() == employee_id)
 					result = true;
@@ -130,7 +130,7 @@ public class TestWaitingListService {
 				IWaiting result_WaitingList = WaitingLists.searchWaitingById(id);
 		
 				//Display the returned value 
-				System.out.println("\n Waiting id : "+result_WaitingList.getId()+" Car id : "+ result_WaitingList.getCar_id()+" Employee Id : "+result_WaitingList.getEmployee_id()+" available date : "+ result_WaitingList.getDate_available().toString()+" request date : "+ result_WaitingList.getRequest_date().toString());
+				System.out.println("\n Waiting id : "+result_WaitingList.getId()+" Car id : "+ result_WaitingList.getCar_id()+" Employee Id : "+result_WaitingList.getEmployee_id()/*+" available date : "+ result_WaitingList.getDate_available().toString()*/+" request date : "+ result_WaitingList.getRequest_date().toString());
 				
 					if(result_WaitingList.getId() == id)
 						result = true;
@@ -167,7 +167,7 @@ public class TestWaitingListService {
 				for(IWaiting w : result_WaitingLists) {
 					
 				
-					System.out.println("\n Waiting id : "+w.getId()+" Car id : "+ w.getCar_id()+" Employee Id : "+w.getEmployee_id()+" available date : "+ w.getDate_available().toString()+" request date : "+ w.getRequest_date().toString());
+					System.out.println("\n Waiting id : "+w.getId()+" Car id : "+ w.getCar_id()+" Employee Id : "+w.getEmployee_id()/*+" available date : "+ w.getDate_available().toString()*/+" request date : "+ w.getRequest_date().toString());
 					
 					System.out.println("\n -----------------------------------");
 					
@@ -179,7 +179,7 @@ public class TestWaitingListService {
 				System.out.println("\nAfter Change  : -------------");
 				for(IWaiting w : WaitingLists.getWaitingList()) {
 					
-					System.out.println("\n Waiting id : "+w.getId()+" Car id : "+ w.getCar_id()+" Employee Id : "+w.getEmployee_id()+" available date : "+ w.getDate_available().toString()+" request date : "+ w.getRequest_date().toString());
+					System.out.println("\n Waiting id : "+w.getId()+" Car id : "+ w.getCar_id()+" Employee Id : "+w.getEmployee_id()/*+" available date : "+ w.getDate_available().toString()*/+" request date : "+ w.getRequest_date().toString());
 					
 					System.out.println("\n -----------------------------------");
 					
@@ -214,7 +214,7 @@ public class TestWaitingListService {
 			/*App. WaitingList - Management Test*/
 			
 			
-			IWaitingManagement WaitingLists = (IWaitingManagement) Naming.lookup("rmi://localhost:1100/CarsManagement");
+			IWaitingManagement WaitingLists = (IWaitingManagement) Naming.lookup("rmi://localhost:1100/WaitingManagement");
 			
 			TestWaitingListService tests = new TestWaitingListService();
 			
@@ -234,7 +234,7 @@ public class TestWaitingListService {
 			
 			testRemoveWaiting = tests.testRemoveWaiting(WaitingLists, 1);
 			
-			System.out.println("\nResult of Tests of RentService :"
+			System.out.println("\nResult of Tests of WaitingListService :"
 					+"\n testAddToWaitingList : "+ testAddToWaitingList
 					+"\n testSearchWaitingListsByCarId : "+ testSearchWaitingListsByCarId
 					+"\n testSearchWaitingListByEmployeeId : "+ testSearchWaitingListByEmployeeId

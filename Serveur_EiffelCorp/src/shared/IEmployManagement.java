@@ -15,7 +15,11 @@ public interface IEmployManagement extends Remote {
 	
 	public boolean removeEmployeeById(int id) throws RemoteException;
 	
-	public List<IEmploy> searchEmployeeById(int id) throws RemoteException;
+	public IEmploy searchEmployeeById(int id) throws RemoteException;
 	
 	public boolean removeEmployeeByFirstName(String firstName) throws RemoteException;
+	
+	public void setEmployees(List<IEmploy> employees) throws RemoteException ;
+	
+	public List<IEmploy> getEmployees() throws RemoteException;
 }

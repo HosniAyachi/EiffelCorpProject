@@ -122,19 +122,17 @@ public class WaitingListService extends UnicastRemoteObject implements IWaitingM
 		
 		try {
 			
-			List result = new ArrayList<WaitingList>(); 
-			
 			for(IWaiting w :this.waitingList) {
 				
 				if(w.getId()==id) {
 					 
-					result.add(w);
+					return 	(IWaiting) w;
 					
 				}
 			
 			}
 			
-			return 	(IWaiting) result;
+			
 				
 			}
 			

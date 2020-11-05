@@ -217,7 +217,7 @@ public class TestRentalService {
 				/*App. Rental-Management Test*/
 				
 				
-				IRentalsManagement rentals = (IRentalsManagement) Naming.lookup("rmi://localhost:1100/CarsManagement");
+				IRentalsManagement rentals = (IRentalsManagement) Naming.lookup("rmi://localhost:1100/RentalsManagement");
 				
 				TestRentalService tests = new TestRentalService();
 				

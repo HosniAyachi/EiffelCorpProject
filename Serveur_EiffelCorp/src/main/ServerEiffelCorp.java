@@ -28,7 +28,7 @@ public class ServerEiffelCorp {
 		
 		catch (Exception e) {
 			
-			 System.out.println("An Error Has Occured while running the server  stacktrace : " + e.getMessage());
+			 System.out.println("An Error Has Occured while running the server for EiffelCorp stacktrace : " + e.getMessage());
 			 
 			 }
 	

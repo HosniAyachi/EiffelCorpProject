@@ -14,12 +14,12 @@ import shared.IEmployManagement;
 public class EmployeeService extends UnicastRemoteObject implements IEmployManagement  {
 
 	
-	 List<Employee> employees; 
+	 List<IEmploy> employees; 
 	
 	
 	public EmployeeService() throws RemoteException {
 		super();
-		employees = new ArrayList<Employee>(); 
+		employees = new ArrayList<IEmploy>(); 
 	}
 	
 	
@@ -27,8 +27,11 @@ public class EmployeeService extends UnicastRemoteObject implements IEmployManag
 	public boolean addEmployee(String firstName, String lastName, String email, String address, int age) throws RemoteException {
 		
 		try {
+			System.out.println("Size of List Employees : "+this.employees.size());
 			
 			if(this.employees.isEmpty()) {
+				System.out.println("i'm in 1");
+				
 				this.employees.add(new Employee(0,firstName,lastName,email,address,age));
 				
 				
@@ -38,7 +41,9 @@ public class EmployeeService extends UnicastRemoteObject implements IEmployManag
 				}
 			
 			else {
-				this.employees.add(new Employee(this.employees.get(this.employees.size()).getId()+1,firstName,lastName,email,address,age));
+				System.out.println("i'm in 2");
+				
+				this.employees.add(new Employee(this.employees.get(this.employees.size()-1).getId()+1,firstName,lastName,email,address,age));
 				return true;
 				}
 				
@@ -63,9 +68,9 @@ public class EmployeeService extends UnicastRemoteObject implements IEmployManag
 		
 		try {
 				
-			List result = new ArrayList<Employee>();
+			List result = new ArrayList<IEmploy>();
 			
-			for(Employee emp : employees ) {
+			for(IEmploy emp : employees ) {
 				
 				if(emp.getFirstName().toLowerCase().equals(firstName.toLowerCase())) 
 					
@@ -89,34 +94,34 @@ public class EmployeeService extends UnicastRemoteObject implements IEmployManag
 		return null;
 	}
 	
-	public List<IEmploy> searchEmployeeById(int id) throws RemoteException {
+	public IEmploy searchEmployeeById(int id) throws RemoteException {
 		
 		
 		
 		
 		try {
 				
-			List result = new ArrayList<Employee>();
 			
-			for(Employee emp : employees ) {
+			
+			for(IEmploy emp : employees ) {
 				
 				if(emp.getId()==id) 
 					
-					result.add(emp);
+					return emp;
 				
 				}
 			
-			//testing :		 
-			System.out.println("Result for search : "+ result.get(0));	
+		 
+				
 			
-			return result;	 
+				 
 			}
 					
 		
 		
 		catch(Exception e) {
 			
-			System.out.println("An Error has occurend during the research of employee by firstname process stacktrace : "+ e.getMessage());
+			System.out.println("An Error has occurend during the research of employee by id process stacktrace : "+ e.getMessage());
 			
 		}
 		
@@ -161,6 +166,19 @@ public class EmployeeService extends UnicastRemoteObject implements IEmployManag
 		return false;
 		
 		}
+
+
+
+	
+	public List<IEmploy> getEmployees() throws RemoteException {
+		return employees;
+	}
+
+
+
+	public void setEmployees(List<IEmploy> employees) throws RemoteException {
+		this.employees = employees;
+	}
 
 	//Add method to set availabilty and remove on cascade rental row for the emp conserned when
 	//deleting it .

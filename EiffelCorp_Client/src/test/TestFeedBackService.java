@@ -215,7 +215,7 @@ public class TestFeedBackService {
 				/*App. FeedBack-Management Test*/
 				
 				
-				IFeedBackManagement feedBacks = (IFeedBackManagement) Naming.lookup("rmi://localhost:1100/CarsManagement");
+				IFeedBackManagement feedBacks = (IFeedBackManagement) Naming.lookup("rmi://localhost:1100/FeedBackManagement");
 				
 				TestFeedBackService tests = new TestFeedBackService();
 				
@@ -235,7 +235,7 @@ public class TestFeedBackService {
 				
 				testRemoveFeedBack = tests.testRemoveFeedBack(feedBacks, 1);
 				
-				System.out.println("\nResult of Tests of RentService :"
+				System.out.println("\nResult of Tests of FeedBackService :"
 						+"\n testAddFeedBack : "+ testAddFeedBack
 						+"\n testSearchFeedBacksByCarId : "+ testSearchFeedBacksByCarId
 						+"\n testSearchFeedBackByEmployeeId : "+ testSearchFeedBackByEmployeeId

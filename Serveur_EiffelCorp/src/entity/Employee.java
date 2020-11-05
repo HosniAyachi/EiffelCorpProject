@@ -21,6 +21,7 @@ public class Employee extends UnicastRemoteObject implements IEmploy {
 
 	public Employee(int id, String firstName, String lastName, String email, String address, int age) throws RemoteException {
 		super();
+		this.id=id;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;

@@ -114,20 +114,18 @@ public class FeedBackService extends UnicastRemoteObject implements IFeedBackMan
 	public IFeedBack searchFeedBackById(int id) throws RemoteException {
 		
 		try {
-			
-			List result = new ArrayList<FeedBack>(); 
-			
+				
 			for(IFeedBack f :this.feedBacks) {
 				
 				if(f.getId()==id) {
 					 
-					result.add(f);
+					return 	f;
 					
 				}
 			
 			}
 			
-			return 	(IFeedBack) result;
+			
 				
 			}
 			
